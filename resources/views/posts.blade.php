@@ -19,6 +19,8 @@
             </div>
           </div>
           @endforeach()
+          {{-- Método propio de laravel --}}
+          {{ $posts->links("pagination::bootstrap-4") }}
         </div>
     </div>
 </div>
