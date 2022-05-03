@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('posts', PostController::class)
+->middleware('auth')
+->except('show');
