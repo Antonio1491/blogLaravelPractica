@@ -20,11 +20,17 @@ class CreatePostsTable extends Migration
 
             $table->string('title');
 
+            $table->string('slug')->unique;
+
+            $table->string('image')->nullable();
+
             $table->text('body');
 
-            $table->text('iframe');
+            $table->text('iframe')->nullable();
 
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
