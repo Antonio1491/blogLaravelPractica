@@ -6,6 +6,13 @@
         <div class="col-md-8">
           <div class="card mb-4">
             <div class="card-body">
+              @if($post->image)
+              <img src="{{$post->get_image}}" class="card-img-top">
+            @elseif(($post->iframe))
+            <div class="ratio ratio-16x9">
+              {!! $post->iframe !!}
+            </div>
+            @endif
               <h5 class="card-title">{{ $post->title}}</h5>
               <p class="card-text">{{ $post->body }}</p>
               <p class="text-muted mb-0">
